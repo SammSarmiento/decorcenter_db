@@ -23,7 +23,7 @@ protected void doGet(HttpServletRequest req, HttpServletResponse resp)
     String categoriaParam = req.getParameter("categoria");
     String buscar = req.getParameter("buscar");
 
-    // CATÁLOGO PRINCIPAL (no lo toques)
+
     List<Producto> productos;
     if (buscar != null && !buscar.trim().isEmpty()) {
         productos = DAOFactory.getProductoDAO().buscarPorNombre(buscar.trim());
@@ -33,7 +33,6 @@ protected void doGet(HttpServletRequest req, HttpServletResponse resp)
         productos = DAOFactory.getProductoDAO().listarTodos();
     }
 
-    // FAVORITOS con tus imágenes bonitas (favoritas1.jpg a favoritas5.jpg)
     List<Producto> favoritos = new ArrayList<>();
     favoritos.add(DAOFactory.getProductoDAO().buscarPorId(10)); // favoritas1.jpg
     favoritos.add(DAOFactory.getProductoDAO().buscarPorId(5));  // favoritas2.jpg
